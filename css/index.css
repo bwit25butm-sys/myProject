@@ -2,12 +2,17 @@
 *{
     font-family: "DM Sans", sans-serif;
 }
+:root{
+    --primary-color: #030712;
+    --secondary-color: #A87A2A;
+    --color-white: #FFFFFF;
+}
 body{
     margin: 0;
     padding: 0;
 }
 nav{
-    background-color: #030712;
+    background-color: var(--primary-color);
 }
 .nav_items{
     display: flex;
@@ -16,7 +21,7 @@ nav{
 }
 .nav_items a{
     text-decoration: none;
-    color: #fff;
+    color: var(--color-white);
     font-size: 14px;
     font-weight: 500;
     text-transform: capitalize;
@@ -38,10 +43,69 @@ nav{
     gap: 20px;
     align-items: center;
 }
-.consultation_button button{
+.consultation_button .button{
     border: none;
     padding: 10px 30px;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 600;
+    background-color: var(--secondary-color);
+    color: var(--color-white);
+    position: relative;
+    overflow: clip;
+    cursor: pointer;
+}
+.banner_image{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.consultation_button div svg{
+    color: white;
+}
+.consultation_button .button .botton_text{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+.consultation_button .button .hov_button{
+    background-color: var(--secondary-color);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    content: "";
+    contain: "";
+    transition: all 0.3s ease-in-out;
+}
+.consultation_button .button:hover{
+    color: var(--primary-color);
+}
+.consultation_button .button:hover .hov_button{
+    width: 100%
+}
+.menu{
+    display: none;
+}
+/* Media */
+@media (max-width: 420px){
+    .navigation{
+    padding: 10px 0px;
+    }
+    .logo img{
+        height: 30px;
+    }
+    .nav_items{
+        display: none;
+    }
+    .consultation_button{
+        display: none;
+    }
+    .menu{
+        display: block;
+        color: var(--color-white);
+        cursor: pointer;
+    }
 }
